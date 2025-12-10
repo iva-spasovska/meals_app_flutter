@@ -3,8 +3,15 @@ import '../models/meal.dart';
 
 class MealCard extends StatelessWidget {
   final Meal meal;
+  final bool isFavorite;
+  final VoidCallback onToggleFavorite;
 
-  const MealCard({super.key, required this.meal});
+  const MealCard({
+    super.key,
+    required this.meal,
+    required this.isFavorite,
+    required this.onToggleFavorite,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,25 +24,41 @@ class MealCard extends StatelessWidget {
         elevation: 5,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                height: 140,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                    image: NetworkImage(meal.image),
-                    fit: BoxFit.cover,
+              Stack(
+                children: [
+                  Container(
+                    height: 140,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: NetworkImage(meal.image),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                ),
+                  Positioned(
+                    top: 8,
+                    right: 8,
+                    child: GestureDetector(
+                      onTap: onToggleFavorite,
+                      child: Icon(
+                        isFavorite ? Icons.favorite : Icons.favorite_border,
+                        color: isFavorite ? Colors.red : Colors.white,
+                        size: 28,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               Expanded(
                 child: Center(
                   child: Text(
                     meal.name,
-                    style: TextStyle(fontSize: 14),
+                    style: const TextStyle(fontSize: 14),
                     textAlign: TextAlign.center,
                   ),
                 ),

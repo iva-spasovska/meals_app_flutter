@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
 import '../widgets/meal_details.dart';
-import '../widgets/random_meal_button.dart';
 
 class MealDetailsPage extends StatelessWidget {
   const MealDetailsPage({super.key});
@@ -22,7 +21,6 @@ class MealDetailsPage extends StatelessWidget {
         ),
         backgroundColor: Color(0xFFA10707),
         iconTheme: IconThemeData(color: Colors.white),
-        actions: [RandomMealButton()],
       ),
       backgroundColor: Colors.grey.shade200,
       body: MealDetails(meal: meal),

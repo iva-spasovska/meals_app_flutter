@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lab2/services/meal_api_service.dart';
+import 'package:lab2/screens/favorites_page.dart';
 import '../models/category.dart';
 import '../services/category_api_service.dart';
+import '../services/notification_service.dart';
 import '../widgets/category_grid.dart';
 import '../widgets/random_meal_button.dart';
 
@@ -21,10 +22,31 @@ class _HomePageState extends State<HomePage> {
   String _searchQuery = '';
   final TextEditingController _searchController = TextEditingController();
 
+  final NotificationService _notificationService = NotificationService();
+
   @override
   void initState() {
     super.initState();
     _loadCategories();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await _notificationService.init();
+
+      // Future.delayed(const Duration(seconds: 30), () async {
+      //   await _notificationService.showNotification(
+      //     id: 999,
+      //     title: 'Test Notification',
+      //     body: 'This appears 30 seconds after app start',
+      //   );
+      // });
+
+      await _notificationService.scheduleDailyNotificationUsingShowNotification(
+        id: 1,
+        title: 'Recipe of the Day',
+        body: 'Open the app to see today\'s random recipe!',
+        time: const TimeOfDay(hour: 22, minute: 9),
+      );
+    });
   }
 
   @override
@@ -32,7 +54,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Recipe Categories",
+          "Categories",
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
@@ -42,6 +64,16 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color(0xFFA10707),
         iconTheme: IconThemeData(color: Colors.white),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite),
+            tooltip: 'Favorites',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FavoritesPage()),
+              );
+            },
+          ),
           RandomMealButton(),
         ],
       ),

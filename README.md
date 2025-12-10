@@ -28,8 +28,13 @@ A Flutter application for browsing meal categories, searching meals, and viewing
 <img src="https://github.com/user-attachments/assets/65a64252-3445-4d10-9b9e-a94fdb2e6ec3" alt="Recipe Details 2" width="300">
 
 
-## Demo
+## Demo for Lab2
 
 [![Meals App Demo](https://img.youtube.com/vi/sbOLgtzLR_4/0.jpg)](https://www.youtube.com/watch?v=sbOLgtzLR_4)
+
+
+## Demo for Lab3
+[![Meals App Demo 2](https://img.youtube.com/vi/L1kJwiw8Al0/0.jpg)](https://www.youtube.com/shorts/L1kJwiw8Al0)
+
 
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "681711585200",
+    "project_id": "meal-app-iva",
+    "storage_bucket": "meal-app-iva.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681711585200:android:ec3e0da63266558f6db875",
+        "android_client_info": {
+          "package_name": "com.example.lab2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbahdoZZdArR0XeELaEcMkQGGkTgruBEg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
