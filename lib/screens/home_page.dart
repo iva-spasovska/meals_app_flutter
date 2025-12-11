@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
         id: 1,
         title: 'Recipe of the Day',
         body: 'Open the app to see today\'s random recipe!',
-        time: const TimeOfDay(hour: 22, minute: 9),
+        time: const TimeOfDay(hour: 12, minute: 0),
       );
     });
   }
